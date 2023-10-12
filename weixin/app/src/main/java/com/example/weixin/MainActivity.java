@@ -6,6 +6,15 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
+import java.util.List;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.ViewGroup;
 
 
 
@@ -20,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //列表
+        //列表 寻找按钮
         tab01 = findViewById(R.id.tab01);
         tab02 = findViewById(R.id.tab02);
         tab03 = findViewById(R.id.tab03);
@@ -41,17 +50,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tab02.setOnClickListener(this);
         tab03.setOnClickListener(this);
         tab04.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
-//        switch(view.getId()) {
-//            case R.id.tab01: show(1);reset();tab1.setImageResource(R.drawable.a);break;
-//            case R.id.tab02: show(2);reset();tab2.setImageResource(R.drawable.b);break;
-//            case R.id.tab03: show(3);reset();tab3.setImageResource(R.drawable.c);break;
-//            case R.id.tab04: show(4);reset();tab4.setImageResource(R.drawable.d);break;
-//            default:break;
-//        }
         if(view.getId()==R.id.tab01) show(1);
         if(view.getId()==R.id.tab02) show(2);
         if(view.getId()==R.id.tab03) show(3);
@@ -89,5 +92,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           .hide(contactFragment)
           .hide(settingFragment);
     }
+
 
 }
